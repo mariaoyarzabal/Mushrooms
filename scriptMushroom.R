@@ -9,8 +9,4 @@ dataset.test = mushrooms[-indtrain, ]
 trctrl = trainControl(method = "repeatedcv", number = 3, repeats = 50)
 t = train(class ~ ., data = dataset.train, method = "rpart2", trControl = trctrl, tuneLength = 15)
 t
-plot(t)
-pred = predict(t, newdata = dataset.test)
-## error
-1 - sum(diag(table(pred, dataset.test$class))) / dim(dataset.test)[1]
-rpart.plot(t$finalModel)
+image(plot(t))
